@@ -1,0 +1,20 @@
+<!-- <div>
+    <ul>
+        <li *ngFor="let user of userList">{{user.name}}</li>
+    </ul>
+    <form #f="ngForm" ngNativeValidate (ngSubmit)="createUser(f)">
+        <input [(ngModel)]="userInput.name" name="name" type="text" placeholder="user name" required>
+        <button type="submit">create</button>
+    </form>
+</div> -->
+
+<div>
+    <form #f="ngForm" ngNativeValidate (ngSubmit)="addTodo(f)">
+        <input [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
+        <button type="submit" [disabled]="newTodo===''">Add Todo</button>
+    </form>
+    <li *ngFor="let todo of todos; let i=index">
+        <span>{{ todo.newTodo }}</span>
+        <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
+    </li>
+</div>
